@@ -1,0 +1,30 @@
+Given an array nums with n objects colored red, white, or blue
+sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+
+class Solution {
+    public void sortColors(int[] nums) {
+        int i = 0;
+        int j = 0;
+        int k = nums.length - 1;
+        while (j <= k) {
+            if (nums[j] == 0) {
+                int temp=nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
+                i++;
+                j++;
+            }
+            else if (nums[j] == 1) {
+                j++;
+            }
+            else if (nums[j] == 2) {
+                int temp1=nums[j];
+                nums[j]=nums[k];
+                nums[k]=temp1;
+                k--;
+            }
+        }
+    }
+} 
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
